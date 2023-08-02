@@ -1,0 +1,50 @@
+@RestController
+@SpringBootApplication
+@RequestMapping("/cars")
+public class MongoServiceApplication {
+
+	@Autowired
+	private CarRepository carRepository;
+
+	public static void main(String[] args) {
+		SpringApplication.run(MongoServiceApplication.class, args);
+	}
+	
+	@RequestMapping(value = "/loaddata", method = RequestMethod.GET)
+	public ResponseEntity<?> loadData() throws URISyntaxException {
+		System.out.println("In loaddata");
+		carRepository.save(new Car("Lexus", "350h", 2013));
+		carRepository.save(new Car("BMW", "Z3", 2001));
+		carRepository.save(new Car("Dodge", "Viper", 2003));
+		ResponseEntity<?> response = ResponseEntity.ok().build();
+		return response;
+	}
+	
+	@RequestMapping(value = "/findall", method = RequestMethod.GET)
+	public List<Car> findAll() throws URISyntaxException {
+		return null;
+	}
+
+	@RequestMapping(value = "/add", method = RequestMethod.GET)
+	public ResponseEntity<?> addCar(@RequestBody Car car) throws URISyntaxException {
+		return null;
+	}
+	
+	@RequestMapping(value="/{id}", method=RequestMethod.GET)
+    public ResponseEntity<Car> getCar(@PathVariable String id) {
+      return null;
+    }
+
+	// DELETE ALL CARS
+	@RequestMapping(value = "/cars/deleteall",method = RequestMethod.GET)
+	public ResponseEntity<?> deleteAll() {
+		return null;
+	}
+	
+    // DELETE ONE CAR
+	@RequestMapping(value = "/cars/deleteone", method = RequestMethod.GET)
+	public ResponseEntity<?> deleteOneCar() {
+		return null;
+	}
+
+}
