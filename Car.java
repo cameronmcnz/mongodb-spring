@@ -1,10 +1,11 @@
 package com.mcnz.mongodb;
 
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.annotation.Id;
 
 @Document(collection="vehicles")
 public class Car {
-	
+	@Id
 	private String id;
 	
 	private String make, model;
