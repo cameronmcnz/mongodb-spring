@@ -13,11 +13,11 @@ apply plugin: 'maven'
 apply plugin: 'application'
 
 
-group = 'roshambo'
+group = 'cars-and-bids'
 
-description = "roshambo"
+description = "For bidding on cars."
 
-mainClassName = "roshambo.App"
+mainClassName = "com.mcnz.mongodb.MongoServiceApplication"
 
 
 sourceCompatibility = 11
